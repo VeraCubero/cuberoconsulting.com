@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Vera Cubero | Cubero Consulting</title>
+  <meta name="description" content="Transparent pricing for AI implementation consulting, keynotes, workshops, and strategy sessions with Vera Cubero of Cubero Consulting." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pricing-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .pricing-card.featured {
+      border-color: var(--accent);
+      border-width: 2px;
+    }
+    .pricing-card.featured::before {
+      content: "Most Popular";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .pricing-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .pricing-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .pricing-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .pricing-rate {
+      margin-bottom: 20px;
+    }
+    .pricing-rate-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .pricing-rate-row:last-child {
+      border-bottom: none;
+    }
+    .pricing-rate-label {
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pricing-rate-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      flex-shrink: 0;
+    }
+    .pricing-rate-value {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .pricing-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .pricing-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-alt, #F8FAFC);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-top: 16px;
+    }
+
+    /* Travel tier table */
+    .travel-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 24px;
+    }
+    .travel-table th {
+      text-align: left;
+      padding: 10px 16px;
+      background: var(--bg-dark);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+    .travel-table th:last-child { text-align: right; }
+    .travel-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    .travel-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .travel-table tr:last-child td { border-bottom: none; }
+
+    /* Policy section */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .policy-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent);
+    }
+    .policy-card-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .policy-card-body {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="Cubero%20Consulting.png" alt="Cubero Consulting" style="height:40px; width:auto;" />
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="pricing.html" class="active">Pricing</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Book a Consultation</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light); display:block; margin-bottom:10px;">Transparent &amp; Fair</span>
+      <h1>Pricing</h1>
+      <p>All rates are all-inclusive — travel is built in, not billed separately. What you see is what you pay.</p>
+    </div>
+  </section>
+
+  <!-- ===== PRICING CARDS ===== -->
+  <section class="section">
+    <div class="container">
+
+      <span class="section-label">Service Rates</span>
+      <h2 style="margin-bottom: 8px;">What's Included in Every Engagement</h2>
+      <p style="color: var(--text-secondary); max-width: 640px; margin-bottom: 0;">Every service includes a pre-engagement planning call, customized content for your audience, and follow-up resources. Travel within the continental US is included in the base rate — no surprise invoices after the fact.</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <span class="pricing-icon">🎤</span>
+          <div class="pricing-title">Keynote or Training Session</div>
+          <div class="pricing-subtitle">1–2 Hours · Custom Prepared</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">In-Person</span>
+              <span class="pricing-rate-value">$4,500 – $5,500</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Virtual</span>
+              <span class="pricing-rate-value">$3,500 – $4,500</span>
+            </div>
+          </div>
+          <p class="pricing-desc">An engaging, high-impact session that meets your audience where they are — from beginner awareness to advanced implementation strategy. Fully customized to your context, goals, and audience.</p>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-icon">🛠️</span>
+          <div class="pricing-title">Half-Day Workshop</div>
+          <div class="pricing-subtitle">2–3 Hours · Hands-On</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">In-Person</span>
+              <span class="pricing-rate-value">$3,000 – $3,500</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Virtual</span>
+              <span class="pricing-rate-value">$2,500 – $3,000</span>
+            </div>
+          </div>
+          <p class="pricing-desc">Participants leave with practical tools, shared vocabulary, and real prompts they can use the next day. Designed for teachers, teams, or leadership groups ready to move from awareness to action.</p>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="pricing-icon">🌟</span>
+          <div class="pricing-title">Full Day Custom Engagement</div>
+          <div class="pricing-subtitle">Full Day · In-Person Only</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">In-Person</span>
+              <span class="pricing-rate-value">$7,500 – $9,000</span>
+            </div>
+          </div>
+          <p class="pricing-desc">The most impactful single-day option — combining keynote, workshop, and strategy components into one cohesive experience. Best for organizations that want real momentum, not just awareness. In-person delivery only; the energy and engagement of a full day together can't be replicated on a screen.</p>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-icon">🧭</span>
+          <div class="pricing-title">Leadership Strategy Session</div>
+          <div class="pricing-subtitle">90 Min – 2 Hours · Exec &amp; Leadership Teams</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">In-Person</span>
+              <span class="pricing-rate-value">$2,500 – $3,000</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Virtual</span>
+              <span class="pricing-rate-value">$2,000 – $2,500</span>
+            </div>
+          </div>
+          <p class="pricing-desc">A focused working session for executives, superintendents, and leadership teams ready to build a real AI strategy. You'll leave with clarity on where to start, what to avoid, and how to bring your team along.</p>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-icon">📋</span>
+          <div class="pricing-title">AI Guidelines Development</div>
+          <div class="pricing-subtitle">Project-Based · Scoped Per Organization</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Small Org / Single School</span>
+              <span class="pricing-rate-value">$5,000 – $8,000</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">District / Mid-Size</span>
+              <span class="pricing-rate-value">$10,000 – $18,000</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">State / Large System</span>
+              <span class="pricing-rate-value">Custom Quote</span>
+            </div>
+          </div>
+          <p class="pricing-desc">Guided by the same process used to create North Carolina's nationally recognized AI Guidelines. Includes stakeholder engagement, drafting, and final deliverable. Requires a scoping call to scope accurately.</p>
+        </div>
+
+        <div class="pricing-card">
+          <span class="pricing-icon">🤝</span>
+          <div class="pricing-title">Multi-Day District Partnership</div>
+          <div class="pricing-subtitle">3-Day Minimum · In-Person Only</div>
+          <div class="pricing-rate">
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Day Rate</span>
+              <span class="pricing-rate-value">$4,000 – $5,500/day</span>
+            </div>
+            <div class="pricing-rate-row">
+              <span class="pricing-rate-label">Project Minimum</span>
+              <span class="pricing-rate-value">$12,000</span>
+            </div>
+          </div>
+          <p class="pricing-desc">An extended partnership for districts and organizations ready for deep, sustained transformation. Includes needs assessment, custom curriculum design, multi-session delivery, and follow-up support. In-person delivery only.</p>
+          <div class="pricing-note">All multi-day engagements begin with a complimentary needs assessment call to ensure the right fit and scope.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAVEL TIERS ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <span class="section-label">Travel &amp; Location</span>
+      <h2 style="margin-bottom: 8px;">How Geography Affects Pricing</h2>
+      <p style="color: var(--text-secondary); max-width: 640px;">Travel is built into every rate — no separate invoices for flights, hotels, or meals. Rates are based out of Pisgah Forest, NC. For engagements farther afield, a location adjustment applies.</p>
+
+      <table class="travel-table">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Adjustment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600; color: var(--text-primary);">Local</td>
+            <td>Within ~2 hours driving of Pisgah Forest, NC — same-day, no overnight</td>
+            <td>Included in base rate</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600; color: var(--text-primary);">Regional</td>
+            <td>2–4 hour drive — 1 overnight stay required</td>
+            <td>+ $800</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600; color: var(--text-primary);">National</td>
+            <td>Flight required — 1 overnight stay</td>
+            <td>+ $1,500 – $1,800</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600; color: var(--text-primary);">Extended Travel</td>
+            <td>2 or more nights away from home</td>
+            <td>+ $700 per additional night</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">Virtual sessions carry no travel adjustment and are available to organizations anywhere in the world.</p>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATOR DISCOUNT ===== -->
+  <section class="section-sm discount-section">
+    <div class="container">
+      <div class="discount-banner">
+        <div>
+          <div class="discount-label">🍎 For Educators</div>
+          <h3>10% Educator Discount</h3>
+          <p>Public K-12 districts, public universities, state education agencies, and education-focused nonprofits qualify for a 10% discount on all service fees. Travel adjustments are not discounted. Just mention your organization type when you reach out.</p>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary" style="flex-shrink:0;">Check Your Eligibility →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING POLICY ===== -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Booking &amp; Cancellation</span>
+      <h2 style="margin-bottom: 8px;">What to Expect</h2>
+      <p style="color: var(--text-secondary); max-width: 640px;">Every engagement is a partnership. These policies are designed to be fair to both parties and reflect the significant preparation that goes into every session.</p>
+
+      <div class="policy-grid">
+
+        <div class="policy-card">
+          <div class="policy-card-title">📝 To Book</div>
+          <div class="policy-card-body">A signed agreement and 50% deposit are required to hold your date. Your date is not confirmed until both are received.</div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-card-title">💳 Payment</div>
+          <div class="policy-card-body">The remaining 50% balance is due no later than the day of the engagement. Invoices are accepted via check or ACH transfer.</div>
+        </div>
+
+        <div class="policy-card" style="border-left-color: var(--accent-cyan);">
+          <div class="policy-card-title">📅 Cancellation by Client</div>
+          <div class="policy-card-body">
+            The 50% deposit is non-refundable — it covers preparation work that begins at signing.<br /><br />
+            <strong>Balance refund schedule:</strong><br />
+            60+ days before event: full balance refunded<br />
+            30–59 days: 50% of balance refunded<br />
+            Under 30 days: no refund on balance
+          </div>
+        </div>
+
+        <div class="policy-card" style="border-left-color: #10B981;">
+          <div class="policy-card-title">🔄 Rescheduling</div>
+          <div class="policy-card-body">Need to move the date? Rescheduling (rather than cancelling) is always preferred and can usually be accommodated with no penalty, subject to availability.</div>
+        </div>
+
+        <div class="policy-card" style="border-left-color: #F59E0B;">
+          <div class="policy-card-title">⚡ Cancellation by Vera</div>
+          <div class="policy-card-body">In the rare event Vera must cancel due to illness or emergency, you'll receive a full refund of all fees paid, plus priority rescheduling at the same rate.</div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-card-title">❓ Not Sure Where to Start?</div>
+          <div class="policy-card-body">Every engagement begins with a free consultation call. No commitment, no pressure — just a conversation about your organization's needs and goals.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="background: var(--bg-dark); padding: 72px 0; text-align:center;">
+    <div class="container">
+      <h2 style="color:white; margin-bottom:14px;">Ready to Get Started?</h2>
+      <p style="color:rgba(255,255,255,0.6); max-width:500px; margin:0 auto 32px;">Book a free consultation call and we'll figure out the right engagement for your organization's needs and budget.</p>
+      <a href="index.html#contact" class="btn btn-white">Book a Free Consultation →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="Cubero%20Consulting.png" alt="Cubero Consulting" style="height:36px; width:auto;" />
+          </a>
+          <p class="footer-brand-desc">AI implementation consulting &amp; upskilling for small businesses and educational institutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="spotlight.html">Spotlight</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/veracubero/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://x.com/cuberovera" target="_blank" rel="noopener">X / Twitter</a></li>
+            <li><a href="mailto:info@cuberoconsulting.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Cubero Consulting · Vera Cubero</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/veracubero/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://x.com/cuberovera" class="social-link" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+          <a href="mailto:info@cuberoconsulting.com" class="social-link" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      toggle.textContent = links.classList.contains('open') ? '✕' : '☰';
+    });
+  </script>
+
+</body>
+</html>
