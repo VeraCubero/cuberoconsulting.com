@@ -47,6 +47,19 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+    .pricing-card-wide {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .pricing-card-wide .pricing-desc { margin-bottom: 0; }
+    .pricing-card-wide .pricing-rate { margin-bottom: 0; }
+    @media (max-width: 760px) {
+      .pricing-card-wide { grid-template-columns: 1fr; gap: 8px; }
+      .pricing-card-wide .pricing-desc { margin-bottom: 8px; }
+    }
     .pricing-icon {
       font-size: 2rem;
       margin-bottom: 16px;
@@ -318,22 +331,26 @@
           <p class="pricing-desc">Guided by the same process used to create North Carolina's nationally recognized AI Guidelines. Includes stakeholder engagement, drafting, and final deliverable. Requires a scoping call to scope accurately.</p>
         </div>
 
-        <div class="pricing-card">
-          <span class="pricing-icon">🤝</span>
-          <div class="pricing-title">Multi-Day District Partnership</div>
-          <div class="pricing-subtitle">3-Day Minimum · In-Person Only</div>
-          <div class="pricing-rate">
-            <div class="pricing-rate-row">
-              <span class="pricing-rate-label">Day Rate</span>
-              <span class="pricing-rate-value">$4,000 – $5,500/day</span>
-            </div>
-            <div class="pricing-rate-row">
-              <span class="pricing-rate-label">Project Minimum</span>
-              <span class="pricing-rate-value">$12,000</span>
-            </div>
+        <div class="pricing-card pricing-card-wide">
+          <div class="wide-info">
+            <span class="pricing-icon">🤝</span>
+            <div class="pricing-title">Multi-Day District Partnership</div>
+            <div class="pricing-subtitle">3-Day Minimum · In-Person Only</div>
+            <p class="pricing-desc">An extended partnership for districts and organizations ready for deep, sustained transformation. Includes needs assessment, custom curriculum design, multi-session delivery, and follow-up support. In-person delivery only.</p>
           </div>
-          <p class="pricing-desc">An extended partnership for districts and organizations ready for deep, sustained transformation. Includes needs assessment, custom curriculum design, multi-session delivery, and follow-up support. In-person delivery only.</p>
-          <div class="pricing-note">All multi-day engagements begin with a complimentary needs assessment call to ensure the right fit and scope.</div>
+          <div class="wide-rates">
+            <div class="pricing-rate">
+              <div class="pricing-rate-row">
+                <span class="pricing-rate-label">Day Rate</span>
+                <span class="pricing-rate-value">$4,000 – $5,500/day</span>
+              </div>
+              <div class="pricing-rate-row">
+                <span class="pricing-rate-label">Project Minimum</span>
+                <span class="pricing-rate-value">$12,000</span>
+              </div>
+            </div>
+            <div class="pricing-note">All multi-day engagements begin with a complimentary needs assessment call to ensure the right fit and scope.</div>
+          </div>
         </div>
 
       </div>
@@ -486,7 +503,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Cubero Consulting · Vera Cubero</p>
+        <p class="footer-copy">© 2026 Cubero Consulting LLC · Vera Cubero</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/veracubero/" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
           <a href="https://x.com/cuberovera" class="social-link" target="_blank" rel="noopener" aria-label="X">𝕏</a>
