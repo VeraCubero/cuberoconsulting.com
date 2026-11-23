@@ -1207,19 +1207,21 @@ img { display: block; max-width: 100%; height: auto; }
   .nav-toggle { display: block; }
   .nav-links {
     display: none;
-    position: fixed;
-    top: 70px; left: 0; right: 0;
-    height: calc(100vh - 70px);
-    height: calc(100dvh - 70px);
-    background: white;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #ffffff;
     flex-direction: column;
-    padding: 24px 20px;
+    align-items: stretch;
+    padding: 12px 20px 24px;
     gap: 4px;
     z-index: 199;
     border-top: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+    max-height: calc(100vh - 70px);
     overflow-y: auto;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 13px 16px; font-size: 1rem; }
-  .nav-cta { text-align: center; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; width: 100%; padding: 14px 16px; font-size: 1.05rem; text-align: center; color: var(--text-primary); }
+  .nav-cta { text-align: center; margin-top: 8px; }
 }
