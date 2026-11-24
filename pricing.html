@@ -126,46 +126,6 @@
       margin-top: 16px;
     }
 
-    /* Travel tier table */
-    .travel-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 24px;
-    }
-    .travel-table th {
-      text-align: left;
-      padding: 10px 16px;
-      background: var(--bg-dark);
-      color: rgba(255,255,255,0.7);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 600;
-    }
-    .travel-table th:last-child { text-align: right; }
-    .travel-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
-      vertical-align: top;
-    }
-    .travel-table td:last-child {
-      text-align: right;
-      font-weight: 700;
-      color: var(--text-primary);
-      white-space: nowrap;
-    }
-    .travel-table tr:last-child td { border-bottom: none; }
-    @media (max-width: 600px) {
-      .travel-table thead { display: none; }
-      .travel-table, .travel-table tbody, .travel-table tr, .travel-table td { display: block; width: 100%; }
-      .travel-table tr { border-bottom: 1px solid var(--border); padding: 14px 0; }
-      .travel-table tr:last-child { border-bottom: none; }
-      .travel-table td { border-bottom: none; padding: 2px 0; text-align: left; }
-      .travel-table td:last-child { text-align: left; white-space: normal; color: var(--accent); margin-top: 4px; }
-    }
-
     /* Policy section */
     .policy-grid {
       display: grid;
@@ -365,48 +325,6 @@
     </div>
   </section>
 
-  <!-- ===== TRAVEL TIERS ===== -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <span class="section-label">Travel &amp; Location</span>
-      <h2 style="margin-bottom: 8px;">How Geography Affects Pricing</h2>
-      <p style="color: var(--text-secondary); max-width: 640px;">Travel is built into every rate — no separate invoices for flights, hotels, or meals. Rates are based out of Pisgah Forest, NC. For engagements farther afield, a location adjustment applies.</p>
-
-      <table class="travel-table">
-        <thead>
-          <tr>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Adjustment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="font-weight:600; color: var(--text-primary);">Local</td>
-            <td>Within ~2 hours driving of Pisgah Forest, NC — same-day, no overnight</td>
-            <td>Included in base rate</td>
-          </tr>
-          <tr>
-            <td style="font-weight:600; color: var(--text-primary);">Regional</td>
-            <td>2–4 hour drive — 1 overnight stay required</td>
-            <td>+ $800</td>
-          </tr>
-          <tr>
-            <td style="font-weight:600; color: var(--text-primary);">National</td>
-            <td>Flight required — 1 overnight stay</td>
-            <td>+ $1,500 – $1,800</td>
-          </tr>
-          <tr>
-            <td style="font-weight:600; color: var(--text-primary);">Extended Travel</td>
-            <td>2 or more nights away from home</td>
-            <td>+ $700 per additional night</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 12px;">Virtual sessions carry no travel adjustment and are available to organizations anywhere in the world.</p>
-    </div>
-  </section>
-
   <!-- ===== EDUCATOR DISCOUNT ===== -->
   <section class="section-sm discount-section">
     <div class="container">
@@ -414,7 +332,7 @@
         <div>
           <div class="discount-label">🍎 For Educators</div>
           <h3>10% Educator Discount</h3>
-          <p>Public K-12 districts, public universities, state education agencies, and education-focused nonprofits qualify for a 10% discount on all service fees. Travel adjustments are not discounted. Just mention your organization type when you reach out.</p>
+          <p>Public K-12 districts, public universities, state education agencies, and education-focused nonprofits qualify for a 10% discount on all service fees. Just mention your organization type when you reach out.</p>
         </div>
         <a href="index.html#contact" class="btn btn-primary" style="flex-shrink:0;">Check Your Eligibility →</a>
       </div>
