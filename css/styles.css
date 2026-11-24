@@ -1,5 +1,5 @@
 /* ============================================================
-   CUBERO CONSULTING — Shared Stylesheet
+   CUBERO CONSULTING: Shared Stylesheet
    Modern Minimalist Design System
    ============================================================ */
 
@@ -850,7 +850,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ============================================================
-   RESUME PAGE — TIMELINE
+   RESUME PAGE: TIMELINE
    ============================================================ */
 .resume-grid {
   display: grid;
